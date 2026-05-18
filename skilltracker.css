@@ -23,18 +23,35 @@ header { text-align: center; margin-bottom: 40px; }
 h1 { font-size: 2.5rem; margin-bottom: 10px; }
 .subtitle { color: var(--text-dim); font-style: italic; }
 
+/* Refactored Control Panels */
 .control-panel {
     background: var(--card);
     padding: 25px;
     border-radius: 16px;
     box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
-    margin-bottom: 30px;
+    margin-bottom: 20px; /* Reduced to look tight and grouped nicely */
 }
 
-.input-group { display: flex; gap: 10px; margin-bottom: 15px; }
+.panel-title {
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-main);
+}
+
+.input-group { display: flex; gap: 10px; }
+
+/* Makes the second panel inputs stack elegantly if needed, but fits buttons cleanly */
+.vertical-group {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
 
 input, select {
     flex: 1;
+    min-width: 120px;
     padding: 12px;
     border-radius: 8px;
     border: 1px solid #334155;
@@ -52,12 +69,11 @@ button {
     font-weight: 700;
     cursor: pointer;
     transition: transform 0.1s, opacity 0.2s;
+    white-space: nowrap;
 }
 
 button:active { transform: scale(0.95); }
 button.secondary { background: var(--success); color: white; width: 100%; }
-
-.divider { border: 0; border-top: 1px solid #334155; margin: 20px 0; }
 
 .skill-card {
     background: var(--card);
@@ -93,3 +109,95 @@ button.secondary { background: var(--success); color: white; width: 100%; }
 .stats { display: flex; justify-content: space-between; font-size: 0.85rem; color: var(--text-dim); }
 .highlight { color: var(--accent); font-weight: bold; }
 
+/* --- Consistency Hub Styles --- */
+.consistency-card {
+    background: var(--card);
+    padding: 20px;
+    border-radius: 16px;
+    margin-bottom: 30px;
+    border-left: 5px solid var(--success);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
+}
+
+.consistency-header h3 {
+    margin: 0 0 15px 0;
+    font-size: 1.1rem;
+    letter-spacing: 0.5px;
+}
+
+.consistency-stats {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+}
+
+.c-stat {
+    background: #0f172a;
+    padding: 12px;
+    border-radius: 10px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    border: 1px solid #334155;
+}
+
+.c-stat span {
+    font-size: 0.75rem;
+    color: var(--text-dim);
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.c-stat strong {
+    font-size: 1.1rem;
+    color: var(--text-main);
+}
+
+.c-stat #exactDate {
+    font-size: 0.7rem;
+    color: var(--text-dim);
+}
+
+/* Append these styles to your existing skilltracker.css file */
+
+/* Completed State Highlight */
+.skill-card.completed {
+    border-left: 5px solid var(--success);
+    box-shadow: 0 0 15px rgba(16, 185, 129, 0.15);
+}
+
+/* Delete Button Styling */
+.btn-delete {
+    background: transparent;
+    color: var(--text-dim);
+    border: none;
+    padding: 6px 10px;
+    font-size: 1rem;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn-delete:hover {
+    background: rgba(239, 68, 68, 0.2); /* Soft red background on hover */
+    color: #ef4444; /* Bright red text */
+    transform: scale(1.05);
+}
+
+.btn-delete:active {
+    transform: scale(0.95);
+}
+
+/* Layout adjusting inside card headers to hold titles and delete button neatly */
+.card-header-left {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.card-header-right {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}

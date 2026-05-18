@@ -10,27 +10,52 @@
 
 <div class="container">
     <header>
-    <h1>📈 SkillStrive</h1>
-    <p class="subtitle">"Small steps lead to big distances."</p>
+        <h1>📈 SkillStrive</h1>
+        <p class="subtitle">"Small steps lead to big distances."</p>
     </header>
 
-    
-    <div class="control-panel">
+    <!-- PANEL 1: Log Hours -->
+    <div class="control-panel" id="logHoursPanel">
+        <h3 class="panel-title">⏱️ Log Your Progress</h3>
         <div class="input-group">
             <select id="skillSelect"></select>
             <input type="number" id="hoursInput" placeholder="Hours to add">
             <button onclick="addSession()">Log Hours</button>
         </div>
-        <hr class="divider">
-        <div class="input-group">
+    </div>
+
+    <!-- PANEL 2: Create New Goal -->
+    <div class="control-panel" id="createGoalPanel">
+        <h3 class="panel-title">🎯 Set a New Goal</h3>
+        <div class="input-group vertical-group">
             <input type="text" id="newSkillName" placeholder="New Skill (e.g. React)">
             <input type="number" id="newSkillGoal" placeholder="Goal (hrs)">
             <button class="secondary" onclick="addNewSkill()">Create New Goal</button>
         </div>
     </div>
 
+    <!-- Activity and Consistency Hub -->
+    <div class="consistency-card">
+        <div class="consistency-header">
+            <h3>⚡ Consistency Hub</h3>
+        </div>
+        <div class="consistency-stats">
+            <div class="c-stat">
+                <span>Total Updates</span>
+                <strong id="updateCount">0</strong>
+            </div>
+            <div class="c-stat">
+                <span>Last Updated</span>
+                <strong id="timeAgo">Never</strong>
+                <small id="exactDate"></small>
+            </div>
+        </div>
+    </div>
+
+    <!-- Container where dynamic skill cards load -->
     <div id="skillsList"></div>
 </div>
+
 <script src="skilltracker.js"></script>
     
 </body>
